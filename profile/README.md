@@ -1,9 +1,15 @@
 # Vooya
 
-**Rust/WASM component islands for existing Vue and React applications.**
+**Keep JavaScript. Move only the expensive part.**
 
-Vooya lets a Rust-backed `.voo` component own one isolated DOM subtree while the
-host application keeps its framework tree, routing, and business state.
+Vooya builds Rust-powered libraries that fit into existing JavaScript applications.
+Instead of asking teams to rewrite an app, we keep familiar JavaScript APIs and
+application architecture, then move a focused workload to the runtime best
+suited to handle it.
+
+The name comes from “voyage to island”: JavaScript stays the application surface,
+while a bounded workload travels to the right island—native Rust through FFI,
+Rust/WASM in the browser, or another environment-specific runtime.
 
 ## Start here
 
@@ -16,6 +22,16 @@ host application keeps its framework tree, routing, and business state.
   trace-waterfall diagnostic demo.
 - [Discussions](https://github.com/orgs/vooyajs/discussions) — questions and
   design conversations.
+
+## Projects
+
+| Project | Familiar JavaScript boundary | Island |
+| --- | --- | --- |
+| [Rush-FS](https://github.com/vooyajs/fs) | Node-style filesystem API | Native Rust bindings for filesystem work |
+| [Vooya](https://github.com/vooyajs/vooya) | Vue/React component import | Rust/WASM-owned UI subtree |
+
+Neither project asks an application to be rewritten in Rust. Each changes a
+focused boundary and leaves the surrounding JavaScript application in place.
 
 ## What exists today
 
