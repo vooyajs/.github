@@ -1,0 +1,19 @@
+profile/README.md
+  s_568f81b04a7ecb::t_b64f2c1ab54de2 5-7,9-18,20-23,25,27-38,40-44,46-47,49,51-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "bf645514729171c13e374d1198361ade3f6e530a",
+  "prompts": {},
+  "sessions": {
+    "s_568f81b04a7ecb": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13417-7ded-7a90-84b8-3de565086ece",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "CoderSerio <79406469+CoderSerio@users.noreply.github.com>"
+    }
+  }
+}
