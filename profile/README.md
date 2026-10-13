@@ -2,55 +2,53 @@
 
 **Keep JavaScript. Move only the expensive part.**
 
-Vooya builds Rust-powered libraries that fit into existing JavaScript applications.
-Instead of asking teams to rewrite an app, we keep familiar JavaScript APIs and
-application architecture, then move a focused workload to the runtime best
-suited to handle it.
+We build Rust-powered tools that fit into existing JavaScript applications.
+Keep the familiar APIs and application architecture; move a focused workload
+to the runtime that suits it.
 
-The name comes from “voyage to island”: JavaScript stays the application surface,
-while a bounded workload travels to the right island—native Rust through FFI,
-Rust/WASM in the browser, or another environment-specific runtime.
+The name comes from “voyage to island”: JavaScript stays the application
+surface, while a bounded capability travels to Rust/WASM in the browser or
+native Rust in Node.js.
 
-## Start here
+[Documentation](https://vooyajs.com/) ·
+[Getting started](https://vooyajs.com/guide/getting-started) ·
+[中文指南](https://vooyajs.com/zh-CN/guide/getting-started) ·
+[Examples & experiments](https://vooyajs.github.io/vooya-lab/)
 
-- [Vooya repository](https://github.com/vooyajs/vooya) — compiler, Vite plugin,
-  framework adapters, examples, and verification suite.
-- [Documentation](https://github.com/vooyajs/vooya/tree/main/docs) — setup,
-  component authoring, ownership boundary, tooling, and current status.
-- [Examples](https://github.com/vooyajs/vooya/tree/main/examples) — Vue and
-  React source components, a task list, data grid, Canvas scatter plot, and
-  trace-waterfall diagnostic demo.
-- [Discussions](https://github.com/orgs/vooyajs/discussions) — questions and
-  design conversations.
+## Rust and WASM in your existing web app
+
+[Vooya](https://github.com/vooyajs/vooya) connects Rust Components and Stores to
+web applications. Write ordinary `.rs` files and import them through a framework
+adapter. Vooya handles compilation, WASM loading, typed bindings, props and
+events, state subscriptions, lifecycle, and cleanup.
+
+[![Vooya architecture: bundlers and native toolchains at build time; framework adapters, WASM, and browser APIs at runtime.](https://raw.githubusercontent.com/vooyajs/vooya/main/docs/public/architecture.svg)](https://vooyajs.com/)
+
+Rust is the implemented language provider. Vue and React are supported;
+Solid and Svelte are experimental. Vite is the primary bundler path, with
+experimental Rspack and Webpack integrations in the opt-in alpha. Dashed
+providers in the diagram show planned extensions, not shipped language support.
+
+Start with the **beta** quickstart; the **0.2 alpha** is an explicit opt-in.
+The optional alpha preset prepares native Rust build tools. Browsers run the
+generated JS and WASM. See [project status](https://vooyajs.com/project/status)
+and the [compatibility matrix](https://vooyajs.com/project/compatibility) for
+current support and prerequisites.
 
 ## Projects
 
-| Project | Familiar JavaScript boundary | Island |
-| --- | --- | --- |
-| [Rush-FS](https://github.com/vooyajs/fs) | Node-style filesystem API | Native Rust bindings for filesystem work |
-| [Vooya](https://github.com/vooyajs/vooya) | Vue/React component import | Rust/WASM-owned UI subtree |
+| Project | What it does |
+| --- | --- |
+| [Vooya](https://github.com/vooyajs/vooya) | Rust/WASM Components and Stores for existing web applications |
+| [Vooya FS](https://github.com/vooyajs/fs) | Native Rust batch filesystem operations behind a Node-style API; the continuation of Rush-FS |
+| [Vooya Lab](https://github.com/vooyajs/vooya-lab) | Runnable browser experiments and integration evidence |
 
-Neither project asks an application to be rewritten in Rust. Each changes a
-focused boundary and leaves the surrounding JavaScript application in place.
+Choose the boundary first, then measure the workload. Moving code to Rust or
+WASM does not automatically make it faster.
 
-## What exists today
+## Join in
 
-- Rust from `.voo` files compiled into application-level WebAssembly.
-- Vite imports for Vue 3 and React 19 source components.
-- Typed component props and events, scoped styles, source-mapped Rust
-  diagnostics, and automated browser checks.
-- A Vue precompiled-artifact reference path that consumers can use without a
-  Rust toolchain.
-
-Vooya is currently an alpha. Source component authors need Rust and the pinned
-WASM toolchain; React precompiled-artifact consumption, SSR, hydration, and
-state-preserving HMR are not implemented. WebAssembly is not assumed to make
-ordinary DOM work faster—see the documented benchmark evidence before drawing a
-performance conclusion.
-
-## Contributing
-
-Read the [project status](https://github.com/vooyajs/vooya/blob/main/docs/project/status.md),
-run the relevant checks, and include a minimal reproduction for bugs. The
-repository is dual-licensed under [MIT](https://github.com/vooyajs/vooya/blob/main/LICENSE-MIT)
-or [Apache-2.0](https://github.com/vooyajs/vooya/blob/main/LICENSE-APACHE).
+Bring a real use case, report a bug, or help with a focused improvement.
+Read [Contributing](https://github.com/vooyajs/vooya/blob/main/CONTRIBUTING.md),
+browse [good first issues](https://github.com/vooyajs/vooya/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22good%20first%20issue%22),
+or start a [discussion](https://github.com/orgs/vooyajs/discussions).
